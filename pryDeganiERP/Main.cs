@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -42,5 +43,37 @@ namespace pryDeganiERP
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Conexion cn = new Conexion();
+
+            try
+            {
+                cn.AbrirConexion();
+
+                string sql = "SELECT * FROM Usuario";
+
+                OleDbDataAdapter da = new OleDbDataAdapter(sql, cn.ObtenerConexion());
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+
+                cn.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
+    
 }
