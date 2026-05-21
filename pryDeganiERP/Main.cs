@@ -14,6 +14,9 @@ namespace pryDeganiERP
     public partial class Main : Form
     {
         Conexion cn = new Conexion();
+
+        public string rolUsuario;
+        public string fechaIngreso;
         public Main()
         {
             InitializeComponent();
@@ -26,6 +29,10 @@ namespace pryDeganiERP
 
         private void Main_Load(object sender, EventArgs e)
         {
+            lblRol.Text = "Rol: " + rolUsuario;
+
+            lblFecha.Text = "Ingreso: " + fechaIngreso;
+
             try
             {
                 cn.AbrirConexion();
@@ -44,36 +51,15 @@ namespace pryDeganiERP
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void lblRol_Click(object sender, EventArgs e)
         {
-            Conexion cn = new Conexion();
 
-            try
-            {
-                cn.AbrirConexion();
-
-                string sql = "SELECT * FROM Usuario";
-
-                OleDbDataAdapter da = new OleDbDataAdapter(sql, cn.ObtenerConexion());
-
-                DataTable dt = new DataTable();
-
-                da.Fill(dt);
-
-                dataGridView1.DataSource = dt;
-
-                cn.CerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void lblFecha_Click(object sender, EventArgs e)
         {
 
         }
     }
-    
+
 }

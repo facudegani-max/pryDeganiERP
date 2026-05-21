@@ -32,6 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.btnIngresar = new System.Windows.Forms.Button();
+            this.lblIntentos = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -66,10 +68,30 @@
             this.txtContraseña.Size = new System.Drawing.Size(100, 20);
             this.txtContraseña.TabIndex = 3;
             // 
+            // btnIngresar
+            // 
+            this.btnIngresar.Location = new System.Drawing.Point(141, 85);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
+            this.btnIngresar.TabIndex = 4;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
+            // lblIntentos
+            // 
+            this.lblIntentos.AutoSize = true;
+            this.lblIntentos.Location = new System.Drawing.Point(42, 90);
+            this.lblIntentos.Name = "lblIntentos";
+            this.lblIntentos.Size = new System.Drawing.Size(0, 13);
+            this.lblIntentos.TabIndex = 5;
+            // 
             // Usuario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(258, 93);
+            this.ClientSize = new System.Drawing.Size(258, 120);
+            this.Controls.Add(this.lblIntentos);
+            this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label2);
@@ -77,6 +99,7 @@
             this.Name = "Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio Sesion";
+            this.Load += new System.EventHandler(this.Usuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,5 +111,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Label lblIntentos;
     }
 }
