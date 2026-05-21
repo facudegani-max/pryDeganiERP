@@ -62,7 +62,7 @@ namespace pryDeganiERP
                     string fechaHora = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
                     // Abre formulario principal
-                    Main ventana = new Main();
+                    Administrador ventana = new Administrador();
 
                     // Envía datos al otro formulario
                     ventana.rolUsuario = rol;

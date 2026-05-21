@@ -1,6 +1,6 @@
 ﻿namespace pryDeganiERP
 {
-    partial class Main
+    partial class Administrador
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -82,7 +82,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu";
+            this.Text = "Administrador";
             this.Load += new System.EventHandler(this.Main_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

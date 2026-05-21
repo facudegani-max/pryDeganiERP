@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace pryDeganiERP
 {
-    public partial class Main : Form
+    public partial class Administrador : Form
     {
         Conexion cn = new Conexion();
 
         public string rolUsuario;
         public string fechaIngreso;
-        public Main()
+        public Administrador()
         {
             InitializeComponent();
         }
