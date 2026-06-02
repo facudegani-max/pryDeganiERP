@@ -56,6 +56,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -245,7 +246,7 @@
             // checkBoxActivo
             // 
             this.checkBoxActivo.AutoSize = true;
-            this.checkBoxActivo.Location = new System.Drawing.Point(58, 450);
+            this.checkBoxActivo.Location = new System.Drawing.Point(14, 448);
             this.checkBoxActivo.Name = "checkBoxActivo";
             this.checkBoxActivo.Size = new System.Drawing.Size(56, 17);
             this.checkBoxActivo.TabIndex = 21;
@@ -254,7 +255,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(8, 489);
+            this.btnGuardar.Location = new System.Drawing.Point(34, 487);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 22;
@@ -263,7 +264,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(103, 489);
+            this.btnModificar.Location = new System.Drawing.Point(125, 487);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 23;
@@ -272,7 +273,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(197, 489);
+            this.btnEliminar.Location = new System.Drawing.Point(125, 516);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 24;
@@ -289,7 +290,7 @@
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.cmbLocalidad);
             this.groupBox1.Controls.Add(this.cmbProvincia);
-            this.groupBox1.Location = new System.Drawing.Point(56, 135);
+            this.groupBox1.Location = new System.Drawing.Point(12, 133);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(208, 147);
             this.groupBox1.TabIndex = 25;
@@ -305,7 +306,7 @@
             this.groupBox2.Controls.Add(this.txtMail);
             this.groupBox2.Controls.Add(this.txtRedes);
             this.groupBox2.Controls.Add(this.cmbRedes);
-            this.groupBox2.Location = new System.Drawing.Point(58, 288);
+            this.groupBox2.Location = new System.Drawing.Point(14, 286);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(206, 146);
             this.groupBox2.TabIndex = 26;
@@ -320,18 +321,28 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.txtDni);
             this.groupBox3.Controls.Add(this.txtNombre);
-            this.groupBox3.Location = new System.Drawing.Point(58, 12);
+            this.groupBox3.Location = new System.Drawing.Point(14, 10);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(206, 100);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Personales";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(34, 516);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 28;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
             // RecursosHumanos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 531);
+            this.ClientSize = new System.Drawing.Size(234, 553);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -383,5 +394,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

@@ -36,6 +36,7 @@
             this.lblIntentos = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbPerfil = new System.Windows.Forms.ComboBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,10 +106,20 @@
             this.cmbPerfil.Size = new System.Drawing.Size(100, 21);
             this.cmbPerfil.TabIndex = 7;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(16, 122);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(78, 32);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "Salir\r\n";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
             // Usuario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(258, 166);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cmbPerfil);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblIntentos);
@@ -136,5 +147,6 @@
         private System.Windows.Forms.Label lblIntentos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbPerfil;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

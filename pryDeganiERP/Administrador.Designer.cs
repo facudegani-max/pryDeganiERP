@@ -32,7 +32,10 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRol = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.dgvAuditoria = new System.Windows.Forms.DataGridView();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -41,7 +44,7 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 349);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(536, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(315, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -72,20 +75,40 @@
             this.lblFecha.Text = "label2";
             this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
-            // Main
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(204, 314);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(78, 32);
+            this.btnSalir.TabIndex = 9;
+            this.btnSalir.Text = "Salir\r\n";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // dgvAuditoria
+            // 
+            this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAuditoria.Location = new System.Drawing.Point(42, 137);
+            this.dgvAuditoria.Name = "dgvAuditoria";
+            this.dgvAuditoria.Size = new System.Drawing.Size(240, 150);
+            this.dgvAuditoria.TabIndex = 10;
+            // 
+            // Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 371);
+            this.ClientSize = new System.Drawing.Size(315, 371);
+            this.Controls.Add(this.dgvAuditoria);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblRol);
             this.Controls.Add(this.statusStrip1);
-            this.Name = "Main";
+            this.Name = "Administrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
             this.Load += new System.EventHandler(this.Main_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,6 +120,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridView dgvAuditoria;
     }
 }
 
