@@ -43,16 +43,16 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtGeografia = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtRedes = new System.Windows.Forms.TextBox();
+            this.cmbProvincia = new System.Windows.Forms.ComboBox();
+            this.cmbLocalidad = new System.Windows.Forms.ComboBox();
+            this.cmbRedes = new System.Windows.Forms.ComboBox();
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -157,6 +157,7 @@
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 20);
             this.txtDni.TabIndex = 10;
+            this.txtDni.TextChanged += new System.EventHandler(this.txtDni_TextChanged);
             // 
             // txtApellido
             // 
@@ -164,6 +165,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 11;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // txtNombre
             // 
@@ -171,6 +173,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 12;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtDireccion
             // 
@@ -178,6 +181,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(100, 20);
             this.txtDireccion.TabIndex = 13;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
             // 
             // txtGeografia
             // 
@@ -185,52 +189,58 @@
             this.txtGeografia.Name = "txtGeografia";
             this.txtGeografia.Size = new System.Drawing.Size(100, 20);
             this.txtGeografia.TabIndex = 14;
+            this.txtGeografia.TextChanged += new System.EventHandler(this.txtGeografia_TextChanged);
             // 
-            // textBox6
+            // txtMail
             // 
-            this.textBox6.Location = new System.Drawing.Point(86, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 15;
+            this.txtMail.Location = new System.Drawing.Point(86, 19);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(100, 20);
+            this.txtMail.TabIndex = 15;
+            this.txtMail.TextChanged += new System.EventHandler(this.txtMail_TextChanged);
             // 
-            // textBox7
+            // txtTelefono
             // 
-            this.textBox7.Location = new System.Drawing.Point(86, 51);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 16;
+            this.txtTelefono.Location = new System.Drawing.Point(86, 51);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefono.TabIndex = 16;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
-            // textBox8
+            // txtRedes
             // 
-            this.textBox8.Location = new System.Drawing.Point(86, 116);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 17;
+            this.txtRedes.Location = new System.Drawing.Point(86, 116);
+            this.txtRedes.Name = "txtRedes";
+            this.txtRedes.Size = new System.Drawing.Size(100, 20);
+            this.txtRedes.TabIndex = 17;
+            this.txtRedes.TextChanged += new System.EventHandler(this.txtRedes_TextChanged);
             // 
-            // comboBox1
+            // cmbProvincia
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(88, 80);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 18;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbProvincia.FormattingEnabled = true;
+            this.cmbProvincia.Location = new System.Drawing.Point(88, 80);
+            this.cmbProvincia.Name = "cmbProvincia";
+            this.cmbProvincia.Size = new System.Drawing.Size(100, 21);
+            this.cmbProvincia.TabIndex = 18;
+            this.cmbProvincia.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cmbLocalidad
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(88, 110);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 19;
+            this.cmbLocalidad.FormattingEnabled = true;
+            this.cmbLocalidad.Location = new System.Drawing.Point(88, 110);
+            this.cmbLocalidad.Name = "cmbLocalidad";
+            this.cmbLocalidad.Size = new System.Drawing.Size(100, 21);
+            this.cmbLocalidad.TabIndex = 19;
+            this.cmbLocalidad.SelectedIndexChanged += new System.EventHandler(this.cmbLocalidad_SelectedIndexChanged);
             // 
-            // comboBox3
+            // cmbRedes
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(86, 83);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 21);
-            this.comboBox3.TabIndex = 20;
+            this.cmbRedes.FormattingEnabled = true;
+            this.cmbRedes.Location = new System.Drawing.Point(86, 83);
+            this.cmbRedes.Name = "cmbRedes";
+            this.cmbRedes.Size = new System.Drawing.Size(100, 21);
+            this.cmbRedes.TabIndex = 20;
+            this.cmbRedes.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // checkBoxActivo
             // 
@@ -242,32 +252,32 @@
             this.checkBoxActivo.Text = "Activo";
             this.checkBoxActivo.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Location = new System.Drawing.Point(8, 489);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGuardar.Location = new System.Drawing.Point(8, 489);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 22;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnModificar
             // 
-            this.button2.Location = new System.Drawing.Point(103, 489);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(103, 489);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 23;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnEliminar
             // 
-            this.button3.Location = new System.Drawing.Point(197, 489);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(197, 489);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 24;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -277,8 +287,8 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDireccion);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbLocalidad);
+            this.groupBox1.Controls.Add(this.cmbProvincia);
             this.groupBox1.Location = new System.Drawing.Point(56, 135);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(208, 147);
@@ -288,13 +298,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.txtTelefono);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.txtMail);
+            this.groupBox2.Controls.Add(this.txtRedes);
+            this.groupBox2.Controls.Add(this.cmbRedes);
             this.groupBox2.Location = new System.Drawing.Point(58, 288);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(206, 146);
@@ -325,9 +335,9 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.checkBoxActivo);
             this.Name = "RecursosHumanos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -360,16 +370,16 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtGeografia;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtRedes;
+        private System.Windows.Forms.ComboBox cmbProvincia;
+        private System.Windows.Forms.ComboBox cmbLocalidad;
+        private System.Windows.Forms.ComboBox cmbRedes;
         private System.Windows.Forms.CheckBox checkBoxActivo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
