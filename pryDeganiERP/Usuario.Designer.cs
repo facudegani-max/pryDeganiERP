@@ -35,7 +35,7 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblIntentos = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPerfil = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -97,19 +97,19 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Perfil";
             // 
-            // comboBox1
+            // cmbPerfil
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(116, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cmbPerfil.FormattingEnabled = true;
+            this.cmbPerfil.Location = new System.Drawing.Point(116, 90);
+            this.cmbPerfil.Name = "cmbPerfil";
+            this.cmbPerfil.Size = new System.Drawing.Size(100, 21);
+            this.cmbPerfil.TabIndex = 7;
             // 
             // Usuario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(258, 166);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbPerfil);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblIntentos);
             this.Controls.Add(this.btnIngresar);
@@ -135,6 +135,6 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblIntentos;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPerfil;
     }
 }

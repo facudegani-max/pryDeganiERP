@@ -10,6 +10,7 @@ namespace pryDeganiERP
         private string cadenaConexion =@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\BaseDatos\Degani.accdb;";
         private OleDbConnection conexion;
 
+
         // Constructor
         public Conexion()
         {
