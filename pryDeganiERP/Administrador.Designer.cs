@@ -33,18 +33,19 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dgvAuditoria = new System.Windows.Forms.DataGridView();
+            this.btnAuditoria = new System.Windows.Forms.Button();
+            this.btnRecursosHumanos = new System.Windows.Forms.Button();
+            this.btnContabilidad = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 349);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 386);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(315, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(329, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -58,7 +59,7 @@
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Location = new System.Drawing.Point(39, 48);
+            this.lblRol.Location = new System.Drawing.Point(22, 18);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(35, 13);
             this.lblRol.TabIndex = 1;
@@ -68,7 +69,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(39, 91);
+            this.lblFecha.Location = new System.Drawing.Point(186, 18);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(35, 13);
             this.lblFecha.TabIndex = 2;
@@ -77,27 +78,49 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(204, 314);
+            this.btnSalir.Location = new System.Drawing.Point(12, 316);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(78, 32);
+            this.btnSalir.Size = new System.Drawing.Size(295, 59);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir\r\n";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
-            // dgvAuditoria
+            // btnAuditoria
             // 
-            this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuditoria.Location = new System.Drawing.Point(42, 137);
-            this.dgvAuditoria.Name = "dgvAuditoria";
-            this.dgvAuditoria.Size = new System.Drawing.Size(240, 150);
-            this.dgvAuditoria.TabIndex = 10;
+            this.btnAuditoria.Location = new System.Drawing.Point(12, 79);
+            this.btnAuditoria.Name = "btnAuditoria";
+            this.btnAuditoria.Size = new System.Drawing.Size(295, 59);
+            this.btnAuditoria.TabIndex = 10;
+            this.btnAuditoria.Text = "Auditoria";
+            this.btnAuditoria.UseVisualStyleBackColor = true;
+            // 
+            // btnRecursosHumanos
+            // 
+            this.btnRecursosHumanos.Location = new System.Drawing.Point(12, 144);
+            this.btnRecursosHumanos.Name = "btnRecursosHumanos";
+            this.btnRecursosHumanos.Size = new System.Drawing.Size(295, 59);
+            this.btnRecursosHumanos.TabIndex = 11;
+            this.btnRecursosHumanos.Text = "Recursos Humanos";
+            this.btnRecursosHumanos.UseVisualStyleBackColor = true;
+            // 
+            // btnContabilidad
+            // 
+            this.btnContabilidad.Location = new System.Drawing.Point(12, 209);
+            this.btnContabilidad.Name = "btnContabilidad";
+            this.btnContabilidad.Size = new System.Drawing.Size(295, 59);
+            this.btnContabilidad.TabIndex = 12;
+            this.btnContabilidad.Text = "Contabilidad";
+            this.btnContabilidad.UseVisualStyleBackColor = true;
             // 
             // Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 371);
-            this.Controls.Add(this.dgvAuditoria);
+            this.ClientSize = new System.Drawing.Size(329, 408);
+            this.Controls.Add(this.btnContabilidad);
+            this.Controls.Add(this.btnRecursosHumanos);
+            this.Controls.Add(this.btnAuditoria);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblRol);
@@ -108,7 +131,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,7 +143,9 @@
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.DataGridView dgvAuditoria;
+        private System.Windows.Forms.Button btnAuditoria;
+        private System.Windows.Forms.Button btnRecursosHumanos;
+        private System.Windows.Forms.Button btnContabilidad;
     }
 }
 
