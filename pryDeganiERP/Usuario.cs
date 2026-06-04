@@ -91,6 +91,7 @@ namespace pryDeganiERP
 
                             ventanaAdmin.rolUsuario = perfil;
                             ventanaAdmin.fechaIngreso = fechaHora;
+                            ventanaAdmin.usuarioActual = correo; // <-- set current user
 
                             ventanaAabrir = ventanaAdmin;
 

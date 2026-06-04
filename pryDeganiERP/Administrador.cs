@@ -68,14 +68,14 @@ namespace pryDeganiERP
 
         private void btnAuditoria_Click(object sender, EventArgs e)
         {
-            Auditoria ventana = new Auditoria();
+            Auditoria ventana = new Auditoria(this);
             this.Hide();
             ventana.Show();
         }
 
         private void btnRecursosHumanos_Click(object sender, EventArgs e)
         {
-            RecursosHumanos ventana = new RecursosHumanos();
+            RecursosHumanos ventana = new RecursosHumanos(this);
             this.Hide();
             ventana.Show();
         }
@@ -88,10 +88,7 @@ namespace pryDeganiERP
             {
                 bd.AbrirConexion();
 
-                string registrar = @"
-        INSERT INTO Auditoria_Usuario
-        (Usuario, Fecha_Hora, Estado_Login, Opcion_Sistema)
-        VALUES (?, ?, ?, ?)";
+                string registrar = @" INSERT INTO Auditoria_Usuario(Usuario, Fecha_Hora, Estado_Login, Opcion_Sistema)VALUES (?, ?, ?, ?)";
 
                 OleDbCommand cmdAuditoria =
                     new OleDbCommand(registrar, bd.ObtenerConexion());
