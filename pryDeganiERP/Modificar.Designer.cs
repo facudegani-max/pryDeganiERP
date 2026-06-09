@@ -59,6 +59,7 @@
             this.cmbProvincia = new System.Windows.Forms.ComboBox();
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -67,8 +68,8 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Tomato;
-            this.btnSalir.Location = new System.Drawing.Point(389, 389);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSalir.Location = new System.Drawing.Point(384, 373);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(322, 59);
             this.btnSalir.TabIndex = 7;
@@ -77,8 +78,8 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(389, 324);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnModificar.Location = new System.Drawing.Point(384, 308);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(5);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(322, 59);
             this.btnModificar.TabIndex = 6;
@@ -88,17 +89,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 25);
+            this.label1.Location = new System.Drawing.Point(14, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 20);
+            this.label1.Size = new System.Drawing.Size(102, 20);
             this.label1.TabIndex = 30;
-            this.label1.Text = "Dni:";
+            this.label1.Text = "Buscar Dni:";
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(157, 22);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtDni.Location = new System.Drawing.Point(152, 6);
+            this.txtDni.Margin = new System.Windows.Forms.Padding(5);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(164, 26);
             this.txtDni.TabIndex = 4;
@@ -111,10 +112,10 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.txtNombre);
-            this.groupBox3.Location = new System.Drawing.Point(14, 63);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox3.Location = new System.Drawing.Point(9, 47);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox3.Size = new System.Drawing.Size(343, 154);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
@@ -123,7 +124,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(143, 69);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(5);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(164, 26);
             this.txtApellido.TabIndex = 1;
@@ -161,7 +162,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(143, 28);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(164, 26);
             this.textBox1.TabIndex = 0;
@@ -169,7 +170,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(143, 111);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(5);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(164, 26);
             this.txtNombre.TabIndex = 2;
@@ -183,10 +184,10 @@
             this.groupBox2.Controls.Add(this.txtMail);
             this.groupBox2.Controls.Add(this.txtRedes);
             this.groupBox2.Controls.Add(this.cmbRedes);
-            this.groupBox2.Location = new System.Drawing.Point(14, 227);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox2.Location = new System.Drawing.Point(9, 211);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox2.Size = new System.Drawing.Size(343, 225);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -195,7 +196,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(143, 78);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(5);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(164, 26);
             this.txtTelefono.TabIndex = 1;
@@ -233,7 +234,7 @@
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(143, 29);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(5);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(164, 26);
             this.txtMail.TabIndex = 0;
@@ -241,7 +242,7 @@
             // txtRedes
             // 
             this.txtRedes.Location = new System.Drawing.Point(143, 178);
-            this.txtRedes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtRedes.Margin = new System.Windows.Forms.Padding(5);
             this.txtRedes.Name = "txtRedes";
             this.txtRedes.Size = new System.Drawing.Size(164, 26);
             this.txtRedes.TabIndex = 3;
@@ -250,7 +251,7 @@
             // 
             this.cmbRedes.FormattingEnabled = true;
             this.cmbRedes.Location = new System.Drawing.Point(143, 128);
-            this.cmbRedes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbRedes.Margin = new System.Windows.Forms.Padding(5);
             this.cmbRedes.Name = "cmbRedes";
             this.cmbRedes.Size = new System.Drawing.Size(164, 28);
             this.cmbRedes.TabIndex = 2;
@@ -265,10 +266,10 @@
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.cmbLocalidad);
             this.groupBox1.Controls.Add(this.cmbProvincia);
-            this.groupBox1.Location = new System.Drawing.Point(379, 63);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Location = new System.Drawing.Point(374, 47);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(347, 226);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -277,7 +278,7 @@
             // txtGeografia
             // 
             this.txtGeografia.Location = new System.Drawing.Point(147, 78);
-            this.txtGeografia.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtGeografia.Margin = new System.Windows.Forms.Padding(5);
             this.txtGeografia.Name = "txtGeografia";
             this.txtGeografia.Size = new System.Drawing.Size(164, 26);
             this.txtGeografia.TabIndex = 1;
@@ -325,7 +326,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(147, 34);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(5);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(164, 26);
             this.txtDireccion.TabIndex = 0;
@@ -334,7 +335,7 @@
             // 
             this.cmbLocalidad.FormattingEnabled = true;
             this.cmbLocalidad.Location = new System.Drawing.Point(147, 169);
-            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(5);
             this.cmbLocalidad.Name = "cmbLocalidad";
             this.cmbLocalidad.Size = new System.Drawing.Size(164, 28);
             this.cmbLocalidad.TabIndex = 3;
@@ -343,7 +344,7 @@
             // 
             this.cmbProvincia.FormattingEnabled = true;
             this.cmbProvincia.Location = new System.Drawing.Point(147, 123);
-            this.cmbProvincia.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cmbProvincia.Margin = new System.Windows.Forms.Padding(5);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(164, 28);
             this.cmbProvincia.TabIndex = 2;
@@ -351,29 +352,40 @@
             // checkBoxActivo
             // 
             this.checkBoxActivo.AutoSize = true;
-            this.checkBoxActivo.Location = new System.Drawing.Point(415, 299);
-            this.checkBoxActivo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.checkBoxActivo.Location = new System.Drawing.Point(518, 282);
+            this.checkBoxActivo.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxActivo.Name = "checkBoxActivo";
-            this.checkBoxActivo.Size = new System.Drawing.Size(77, 24);
+            this.checkBoxActivo.Size = new System.Drawing.Size(201, 24);
             this.checkBoxActivo.TabIndex = 3;
-            this.checkBoxActivo.Text = "Activo";
+            this.checkBoxActivo.Text = "Activado/Desactivado";
             this.checkBoxActivo.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(379, 18);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBuscar.Location = new System.Drawing.Point(374, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(125, 35);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(380, 283);
+            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(134, 20);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Estado Cuenta:";
+            // 
             // Modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 463);
+            this.ClientSize = new System.Drawing.Size(730, 444);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -385,10 +397,10 @@
             this.Controls.Add(this.txtDni);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Modificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modificar";
+            this.Text = "Modificar Usuario";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -432,5 +444,6 @@
         private System.Windows.Forms.ComboBox cmbProvincia;
         private System.Windows.Forms.CheckBox checkBoxActivo;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label label12;
     }
 }

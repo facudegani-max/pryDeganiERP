@@ -19,6 +19,10 @@ namespace pryDeganiERP
             this.Load += Auditoria_Load;
 
             this.btnSalir.Click += btnSalir_Click;
+
+            this.cmblistaAuditoria.SelectedIndexChanged += CmblistaAuditoria_SelectedIndexChanged;
+            this.chkbuttonAscendente.CheckedChanged += SortingOptionChanged;
+            this.chkbuttonDescendente.CheckedChanged += SortingOptionChanged;
         }
 
         // Constructor que recibe el Administrador que la abrió
@@ -34,6 +38,50 @@ namespace pryDeganiERP
 
         private void Auditoria_Load(object sender, EventArgs e)
         {
+            CargarListaTablas();
+            CargarAuditoria();
+        }
+
+        private void CargarListaTablas()
+        {
+            try
+            {
+                bd.AbrirConexion();
+
+                // Get table names from schema
+                DataTable schema = bd.ObtenerConexion().GetSchema("Tables");
+
+                cmblistaAuditoria.Items.Clear();
+
+                foreach (DataRow row in schema.Rows)
+                {
+                    string tableName = row[2].ToString();
+                    // Filter system tables if needed
+                    if (!tableName.StartsWith("MSys"))
+                        cmblistaAuditoria.Items.Add(tableName);
+                }
+
+                bd.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar lista de tablas: " + ex.Message);
+            }
+        }
+
+        private void CmblistaAuditoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarAuditoria();
+        }
+
+        private void SortingOptionChanged(object sender, EventArgs e)
+        {
+            // Ensure only one radio is checked
+            if (sender == chkbuttonAscendente && chkbuttonAscendente.Checked)
+                chkbuttonDescendente.Checked = false;
+            if (sender == chkbuttonDescendente && chkbuttonDescendente.Checked)
+                chkbuttonAscendente.Checked = false;
+
             CargarAuditoria();
         }
 
@@ -43,7 +91,16 @@ namespace pryDeganiERP
             {
                 bd.AbrirConexion();
 
-                string consulta = "SELECT * FROM Auditoria";
+                string tabla = cmblistaAuditoria.SelectedIndex >= 0 ? cmblistaAuditoria.Text : "Auditoria";
+
+                string orden = "";
+
+                if (chkbuttonAscendente.Checked)
+                    orden = " ORDER BY 1 ASC";
+                else if (chkbuttonDescendente.Checked)
+                    orden = " ORDER BY 1 DESC";
+
+                string consulta = $"SELECT * FROM [{tabla}]" + orden;
 
                 OleDbDataAdapter da = new OleDbDataAdapter(
                     consulta,

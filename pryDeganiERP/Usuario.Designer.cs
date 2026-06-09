@@ -36,6 +36,7 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblIntentos = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.checkBoxContraseña = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +75,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(152, 90);
+            this.btnIngresar.Location = new System.Drawing.Point(152, 113);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(94, 32);
             this.btnIngresar.TabIndex = 4;
@@ -93,17 +94,30 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Tomato;
-            this.btnSalir.Location = new System.Drawing.Point(12, 91);
+            this.btnSalir.Location = new System.Drawing.Point(12, 113);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(94, 32);
             this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir\r\n";
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
+            // checkBoxContraseña
+            // 
+            this.checkBoxContraseña.AutoSize = true;
+            this.checkBoxContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxContraseña.Location = new System.Drawing.Point(132, 84);
+            this.checkBoxContraseña.Margin = new System.Windows.Forms.Padding(5);
+            this.checkBoxContraseña.Name = "checkBoxContraseña";
+            this.checkBoxContraseña.Size = new System.Drawing.Size(118, 17);
+            this.checkBoxContraseña.TabIndex = 9;
+            this.checkBoxContraseña.Text = "Mostrar Contraseña";
+            this.checkBoxContraseña.UseVisualStyleBackColor = true;
+            // 
             // Usuario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(258, 135);
+            this.ClientSize = new System.Drawing.Size(257, 155);
+            this.Controls.Add(this.checkBoxContraseña);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblIntentos);
             this.Controls.Add(this.btnIngresar);
@@ -131,5 +145,6 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblIntentos;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.CheckBox checkBoxContraseña;
     }
 }

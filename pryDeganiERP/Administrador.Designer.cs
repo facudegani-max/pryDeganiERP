@@ -44,7 +44,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 606);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 561);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 23, 0);
             this.statusStrip1.Size = new System.Drawing.Size(548, 22);
@@ -83,8 +83,8 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Tomato;
-            this.btnSalir.Location = new System.Drawing.Point(20, 486);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSalir.Location = new System.Drawing.Point(24, 457);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(492, 91);
             this.btnSalir.TabIndex = 9;
@@ -94,8 +94,8 @@
             // 
             // btnAuditoria
             // 
-            this.btnAuditoria.Location = new System.Drawing.Point(20, 122);
-            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAuditoria.Location = new System.Drawing.Point(24, 93);
+            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(5);
             this.btnAuditoria.Name = "btnAuditoria";
             this.btnAuditoria.Size = new System.Drawing.Size(492, 91);
             this.btnAuditoria.TabIndex = 10;
@@ -104,8 +104,8 @@
             // 
             // btnRecursosHumanos
             // 
-            this.btnRecursosHumanos.Location = new System.Drawing.Point(20, 222);
-            this.btnRecursosHumanos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnRecursosHumanos.Location = new System.Drawing.Point(24, 193);
+            this.btnRecursosHumanos.Margin = new System.Windows.Forms.Padding(5);
             this.btnRecursosHumanos.Name = "btnRecursosHumanos";
             this.btnRecursosHumanos.Size = new System.Drawing.Size(492, 91);
             this.btnRecursosHumanos.TabIndex = 11;
@@ -114,8 +114,8 @@
             // 
             // btnContabilidad
             // 
-            this.btnContabilidad.Location = new System.Drawing.Point(20, 322);
-            this.btnContabilidad.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnContabilidad.Location = new System.Drawing.Point(24, 293);
+            this.btnContabilidad.Margin = new System.Windows.Forms.Padding(5);
             this.btnContabilidad.Name = "btnContabilidad";
             this.btnContabilidad.Size = new System.Drawing.Size(492, 91);
             this.btnContabilidad.TabIndex = 12;
@@ -126,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 628);
+            this.ClientSize = new System.Drawing.Size(548, 583);
             this.Controls.Add(this.btnContabilidad);
             this.Controls.Add(this.btnRecursosHumanos);
             this.Controls.Add(this.btnAuditoria);
@@ -136,7 +136,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Administrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";

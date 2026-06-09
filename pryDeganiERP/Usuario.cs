@@ -21,6 +21,21 @@ namespace pryDeganiERP
 
             // Wire salir button to exit application
             this.btnSalir.Click += btnSalir_Click;
+
+            // Mostrar/ocultar contraseña
+            this.checkBoxContraseña.CheckedChanged += CheckBoxContraseña_CheckedChanged;
+        }
+
+        private void CheckBoxContraseña_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxContraseña.Checked)
+            {
+                txtContraseña.PasswordChar = '\0';
+            }
+            else
+            {
+                txtContraseña.PasswordChar = '*';
+            }
         }
 
         private void Usuario_Load(object sender, EventArgs e)

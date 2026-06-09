@@ -1,6 +1,6 @@
 ﻿namespace pryDeganiERP
 {
-    partial class Eliminar
+    partial class Agregar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Eliminar));
             this.label12 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,9 +55,7 @@
             this.cmbProvincia = new System.Windows.Forms.ComboBox();
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDni = new System.Windows.Forms.TextBox();
+            this.btnCargar = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -69,23 +65,12 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(380, 283);
+            this.label12.Location = new System.Drawing.Point(385, 250);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(134, 20);
-            this.label12.TabIndex = 38;
+            this.label12.TabIndex = 13;
             this.label12.Text = "Estado Cuenta:";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(374, 2);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(125, 35);
-            this.btnBuscar.TabIndex = 36;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -96,12 +81,12 @@
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.txtNombre);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(9, 47);
+            this.groupBox3.Location = new System.Drawing.Point(14, 14);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox3.Size = new System.Drawing.Size(343, 154);
-            this.groupBox3.TabIndex = 31;
+            this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Personales";
             // 
@@ -169,12 +154,12 @@
             this.groupBox2.Controls.Add(this.txtRedes);
             this.groupBox2.Controls.Add(this.cmbRedes);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(9, 211);
+            this.groupBox2.Location = new System.Drawing.Point(14, 178);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox2.Size = new System.Drawing.Size(343, 225);
-            this.groupBox2.TabIndex = 32;
+            this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contacto";
             // 
@@ -252,12 +237,12 @@
             this.groupBox1.Controls.Add(this.cmbLocalidad);
             this.groupBox1.Controls.Add(this.cmbProvincia);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(374, 47);
+            this.groupBox1.Location = new System.Drawing.Point(379, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(347, 226);
-            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Domicilio";
             // 
@@ -339,11 +324,11 @@
             // 
             this.checkBoxActivo.AutoSize = true;
             this.checkBoxActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxActivo.Location = new System.Drawing.Point(518, 282);
+            this.checkBoxActivo.Location = new System.Drawing.Point(523, 249);
             this.checkBoxActivo.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxActivo.Name = "checkBoxActivo";
             this.checkBoxActivo.Size = new System.Drawing.Size(201, 24);
-            this.checkBoxActivo.TabIndex = 34;
+            this.checkBoxActivo.TabIndex = 11;
             this.checkBoxActivo.Text = "Activado/Desactivado";
             this.checkBoxActivo.UseVisualStyleBackColor = true;
             // 
@@ -351,66 +336,39 @@
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Tomato;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(384, 373);
+            this.btnSalir.Location = new System.Drawing.Point(389, 340);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(322, 59);
-            this.btnSalir.TabIndex = 39;
+            this.btnSalir.TabIndex = 14;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnCargar
             // 
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(384, 308);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(322, 59);
-            this.btnEliminar.TabIndex = 37;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargar.Location = new System.Drawing.Point(389, 275);
+            this.btnCargar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(322, 59);
+            this.btnCargar.TabIndex = 12;
+            this.btnCargar.Text = "Cargar";
+            this.btnCargar.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // Agregar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 20);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "Buscar Dni:";
-            // 
-            // txtDni
-            // 
-            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDni.Location = new System.Drawing.Point(152, 6);
-            this.txtDni.Margin = new System.Windows.Forms.Padding(5);
-            this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(164, 26);
-            this.txtDni.TabIndex = 35;
-            // 
-            // Eliminar
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 445);
+            this.ClientSize = new System.Drawing.Size(734, 418);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBoxActivo);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtDni);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Eliminar";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Eliminar Usuario";
+            this.Controls.Add(this.btnCargar);
+            this.Name = "Agregar";
+            this.Text = "Agregar Usuario";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -425,7 +383,6 @@
         #endregion
 
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label2;
@@ -452,8 +409,6 @@
         private System.Windows.Forms.ComboBox cmbProvincia;
         private System.Windows.Forms.CheckBox checkBoxActivo;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.Button btnCargar;
     }
 }
