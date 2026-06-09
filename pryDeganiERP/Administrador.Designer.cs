@@ -59,7 +59,7 @@
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Location = new System.Drawing.Point(22, 18);
+            this.lblRol.Location = new System.Drawing.Point(12, 18);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(35, 13);
             this.lblRol.TabIndex = 1;
@@ -69,7 +69,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(186, 18);
+            this.lblFecha.Location = new System.Drawing.Point(166, 18);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(35, 13);
             this.lblFecha.TabIndex = 2;
@@ -78,12 +78,13 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.Tomato;
             this.btnSalir.Location = new System.Drawing.Point(12, 316);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(295, 59);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir\r\n";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
             // btnAuditoria

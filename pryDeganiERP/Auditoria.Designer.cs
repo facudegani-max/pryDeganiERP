@@ -40,16 +40,16 @@
             this.dgvAuditoria.Name = "dgvAuditoria";
             this.dgvAuditoria.Size = new System.Drawing.Size(776, 376);
             this.dgvAuditoria.TabIndex = 11;
-            //this.dgvAuditoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuditoria_CellContentClick);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.Tomato;
             this.btnSalir.Location = new System.Drawing.Point(493, 394);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(295, 59);
             this.btnSalir.TabIndex = 12;
             this.btnSalir.Text = "Salir\r\n";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // Auditoria
             // 
