@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administrador));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRol = new System.Windows.Forms.Label();
@@ -43,9 +44,10 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 386);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 606);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(329, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 23, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(548, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -59,9 +61,10 @@
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Location = new System.Drawing.Point(12, 18);
+            this.lblRol.Location = new System.Drawing.Point(20, 28);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(35, 13);
+            this.lblRol.Size = new System.Drawing.Size(57, 20);
             this.lblRol.TabIndex = 1;
             this.lblRol.Text = "label1";
             this.lblRol.Click += new System.EventHandler(this.lblRol_Click);
@@ -69,9 +72,10 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(166, 18);
+            this.lblFecha.Location = new System.Drawing.Point(277, 28);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(35, 13);
+            this.lblFecha.Size = new System.Drawing.Size(57, 20);
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "label2";
             this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
@@ -79,9 +83,10 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Tomato;
-            this.btnSalir.Location = new System.Drawing.Point(12, 316);
+            this.btnSalir.Location = new System.Drawing.Point(20, 486);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(295, 59);
+            this.btnSalir.Size = new System.Drawing.Size(492, 91);
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir\r\n";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -89,36 +94,39 @@
             // 
             // btnAuditoria
             // 
-            this.btnAuditoria.Location = new System.Drawing.Point(12, 79);
+            this.btnAuditoria.Location = new System.Drawing.Point(20, 122);
+            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnAuditoria.Name = "btnAuditoria";
-            this.btnAuditoria.Size = new System.Drawing.Size(295, 59);
+            this.btnAuditoria.Size = new System.Drawing.Size(492, 91);
             this.btnAuditoria.TabIndex = 10;
             this.btnAuditoria.Text = "Auditoria";
             this.btnAuditoria.UseVisualStyleBackColor = true;
             // 
             // btnRecursosHumanos
             // 
-            this.btnRecursosHumanos.Location = new System.Drawing.Point(12, 144);
+            this.btnRecursosHumanos.Location = new System.Drawing.Point(20, 222);
+            this.btnRecursosHumanos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnRecursosHumanos.Name = "btnRecursosHumanos";
-            this.btnRecursosHumanos.Size = new System.Drawing.Size(295, 59);
+            this.btnRecursosHumanos.Size = new System.Drawing.Size(492, 91);
             this.btnRecursosHumanos.TabIndex = 11;
             this.btnRecursosHumanos.Text = "Recursos Humanos";
             this.btnRecursosHumanos.UseVisualStyleBackColor = true;
             // 
             // btnContabilidad
             // 
-            this.btnContabilidad.Location = new System.Drawing.Point(12, 209);
+            this.btnContabilidad.Location = new System.Drawing.Point(20, 322);
+            this.btnContabilidad.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnContabilidad.Name = "btnContabilidad";
-            this.btnContabilidad.Size = new System.Drawing.Size(295, 59);
+            this.btnContabilidad.Size = new System.Drawing.Size(492, 91);
             this.btnContabilidad.TabIndex = 12;
             this.btnContabilidad.Text = "Contabilidad";
             this.btnContabilidad.UseVisualStyleBackColor = true;
             // 
             // Administrador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 408);
+            this.ClientSize = new System.Drawing.Size(548, 628);
             this.Controls.Add(this.btnContabilidad);
             this.Controls.Add(this.btnRecursosHumanos);
             this.Controls.Add(this.btnAuditoria);
@@ -126,6 +134,9 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblRol);
             this.Controls.Add(this.statusStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Administrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
