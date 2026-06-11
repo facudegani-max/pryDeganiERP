@@ -214,18 +214,8 @@ namespace pryDeganiERP
                 bd.CerrarConexion();
 
                 MessageBox.Show("Usuario guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Volver a RecursosHumanos
-                if (ownerRecursos != null)
-                {
-                    this.Hide();
-                    ownerRecursos.Show();
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                }
+                // Volver a RecursosHumanos (usa comprobación IsDisposed)
+                VolverAOwnerRecursos();
             }
             catch (Exception ex)
             {
@@ -236,16 +226,26 @@ namespace pryDeganiERP
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            if (ownerRecursos != null)
+            VolverAOwnerRecursos();
+        }
+
+        // Comprueba si la referencia ownerRecursos sigue viva antes de mostrarla.
+        private void VolverAOwnerRecursos()
+        {
+            if (ownerRecursos != null && !ownerRecursos.IsDisposed)
             {
                 this.Hide();
                 ownerRecursos.Show();
                 this.Close();
+                return;
             }
-            else
-            {
-                this.Close();
-            }
+
+            // Si ownerRecursos fue dispuesto o es null, abrir una nueva instancia
+            RecursosHumanos nueva = new RecursosHumanos();
+            this.Hide();
+            nueva.Show();
+            this.Close();
         }
+       
     }
 }

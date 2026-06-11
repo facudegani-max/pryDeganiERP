@@ -39,6 +39,8 @@ namespace pryDeganiERP
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Eliminar ventana = new Eliminar(this);
+            // Marcar el formulario creado como propiedad de este formulario
+            ventana.Owner = this;
             this.Hide();
             ventana.Show();
         }
@@ -46,6 +48,8 @@ namespace pryDeganiERP
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Modificar ventana = new Modificar(this);
+            // Marcar el formulario creado como propiedad de este formulario
+            ventana.Owner = this;
             this.Hide();
             ventana.Show();
         }
@@ -53,6 +57,8 @@ namespace pryDeganiERP
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Agregar ventana = new Agregar(this);
+            // Marcar el formulario creado como propiedad de este formulario
+            ventana.Owner = this;
             this.Hide();
             ventana.Show();
         }
@@ -63,16 +69,18 @@ namespace pryDeganiERP
         {
             if (ownerAdminRef != null && ownerAdminRef.rolUsuario == "Administrador")
             {
-                this.Hide();
+                // Mostrar el administrador y ocultar este formulario.
+                // No cerrar el administrador (ownerAdminRef) aquí.
                 ownerAdminRef.Show();
-                // Do not close ownerAdminRef
+                this.Hide();
+                // Cerrar este formulario después de ocultarlo para liberar recursos
                 this.Close();
             }
             else
             {
                 Usuario login = new Usuario();
-                this.Hide();
                 login.Show();
+                this.Hide();
                 this.Close();
             }
         }
