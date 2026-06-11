@@ -17,9 +17,48 @@ namespace pryDeganiERP
             this.btnModificar.Click += btnModificar_Click;
             this.btnSalir.Click += btnSalir_Click;
 
+            // Trigger search on Enter key in DNI field
+            this.txtDni.KeyDown += TxtDni_KeyDown;
+
+            // Disable editing until a user is found
+            SetControlsEnabled(false);
+
             cmbProvincia.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRedes.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void TxtDni_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == System.Windows.Forms.Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnBuscar.PerformClick();
+            }
+        }
+
+        private void SetControlsEnabled(bool enabled)
+        {
+            // Personal
+            textBox1.Enabled = enabled; // personal Dni editable after search
+            txtNombre.Enabled = enabled;
+            txtApellido.Enabled = enabled;
+
+            // Contacto
+            txtMail.Enabled = enabled;
+            txtTelefono.Enabled = enabled;
+            cmbRedes.Enabled = enabled;
+            txtRedes.Enabled = enabled;
+
+            // Domicilio
+            txtDireccion.Enabled = enabled;
+            txtGeografia.Enabled = enabled;
+            cmbProvincia.Enabled = enabled;
+            cmbLocalidad.Enabled = enabled;
+
+            checkBoxActivo.Enabled = enabled;
+
+            btnModificar.Enabled = enabled;
         }
 
         public Modificar(RecursosHumanos owner) : this()
@@ -103,6 +142,12 @@ namespace pryDeganiERP
 
                 if (dr.Read())
                 {
+                    // Show DNI in personal data so it can be edited if needed
+                    textBox1.Text = dr["Dni"].ToString();
+
+                    // Enable editing after a successful search
+                    SetControlsEnabled(true);
+
                     txtNombre.Text = dr["Nombre"].ToString();
                     txtApellido.Text = dr["Apellido"].ToString();
                     txtMail.Text = dr["Mail"].ToString();
@@ -214,14 +259,16 @@ namespace pryDeganiERP
                 bd.AbrirConexion();
                 var con = bd.ObtenerConexion();
 
-                // Update Usuario
-                string sqlUser = "UPDATE Usuario SET Nombre = ?, Apellido = ?, Mail = ?, Estado = ? WHERE Dni = ?";
+                // Update Usuario (allow changing the DNI: set new Dni and use original dni in WHERE)
+                string newDni = textBox1.Text.Trim();
+                string sqlUser = "UPDATE Usuario SET Nombre = ?, Apellido = ?, Mail = ?, Estado = ?, Dni = ? WHERE Dni = ?";
                 OleDbCommand cmdUser = new OleDbCommand(sqlUser, con);
                 cmdUser.Parameters.AddWithValue("@Nombre", txtNombre.Text.Trim());
                 cmdUser.Parameters.AddWithValue("@Apellido", txtApellido.Text.Trim());
                 cmdUser.Parameters.AddWithValue("@Mail", txtMail.Text.Trim());
                 cmdUser.Parameters.AddWithValue("@Estado", checkBoxActivo.Checked ? 1 : 0);
-                cmdUser.Parameters.AddWithValue("@Dni", dni);
+                cmdUser.Parameters.AddWithValue("@NewDni", newDni);
+                cmdUser.Parameters.AddWithValue("@OriginalDni", dni);
                 int rowsUser = cmdUser.ExecuteNonQuery();
 
                 // Update Domicilio_Usuario (we need Id_Usuario). We'll try to update based on Usuario.IdUsuario via JOIN-like select
@@ -257,17 +304,9 @@ namespace pryDeganiERP
 
                 MessageBox.Show("Datos modificados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Volver a RecursosHumanos
-                if (ownerRecursosHumanos != null)
-                {
-                    this.Hide();
-                    ownerRecursosHumanos.Show();
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                }
+                // Mantenerse en el formulario: deshabilitar edición hasta nueva búsqueda
+                SetControlsEnabled(false);
+                btnModificar.Enabled = false;
             }
             catch (Exception ex)
             {

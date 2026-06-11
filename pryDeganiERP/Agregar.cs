@@ -27,6 +27,8 @@ namespace pryDeganiERP
         {
             CargarProvincias();
             CargarRedes();
+
+          
         }
 
         private void CargarProvincias()
@@ -109,6 +111,11 @@ namespace pryDeganiERP
             cmbRedes.Items.Add("YouTube");
         }
 
+        private void cmbProvincia_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            CargarLocalidades();
+        }
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
             // Basic validation
@@ -173,6 +180,7 @@ namespace pryDeganiERP
                 cmdUsuario.Parameters.AddWithValue("@Dni", textBox1.Text.Trim());
                 cmdUsuario.Parameters.AddWithValue("@Estado", checkBoxActivo.Checked ? 1 : 0);
                 cmdUsuario.ExecuteNonQuery();
+                
 
                 OleDbCommand cmdId = new OleDbCommand("SELECT @@IDENTITY", con);
                 int nuevoId = Convert.ToInt32(cmdId.ExecuteScalar());

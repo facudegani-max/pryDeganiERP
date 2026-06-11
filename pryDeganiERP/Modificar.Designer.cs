@@ -102,7 +102,7 @@
             this.txtDni.Margin = new System.Windows.Forms.Padding(5);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(164, 26);
-            this.txtDni.TabIndex = 4;
+            this.txtDni.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -117,7 +117,7 @@
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox3.Size = new System.Drawing.Size(343, 154);
-            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Personales";
             // 
@@ -189,7 +189,7 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox2.Size = new System.Drawing.Size(343, 225);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contacto";
             // 
@@ -271,7 +271,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(347, 226);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Domicilio";
             // 
@@ -356,7 +356,7 @@
             this.checkBoxActivo.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxActivo.Name = "checkBoxActivo";
             this.checkBoxActivo.Size = new System.Drawing.Size(201, 24);
-            this.checkBoxActivo.TabIndex = 3;
+            this.checkBoxActivo.TabIndex = 5;
             this.checkBoxActivo.Text = "Activado/Desactivado";
             this.checkBoxActivo.UseVisualStyleBackColor = true;
             // 
@@ -366,7 +366,7 @@
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(125, 35);
-            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 

@@ -48,9 +48,14 @@ namespace pryDeganiERP
             string correo = txtUsuario.Text.Trim();
             string clave = txtContraseña.Text.Trim();
 
-            if (correo == "" || clave == "")
+            if (correo == "")
             {
-                MessageBox.Show("Debe completar usuario y contraseña.");
+                MessageBox.Show("Debe completar usuario");
+                return;
+            }
+            else if (clave == "")
+            {
+                MessageBox.Show("Debe completar contraseña.");
                 return;
             }
 
@@ -80,19 +85,25 @@ namespace pryDeganiERP
                 {
                     string perfil = lector["Nombre"].ToString();
 
-                    /*
-                    string sqlAuditoria = @" INSERT INTO Auditoria_Usuario(Usuario, Fecha_Hora, Estado_Login, Opcion_Sistema) VALUES (?, ?, ?, ?)";
 
-                    OleDbCommand cmdAuditoria =
-                        new OleDbCommand(sqlAuditoria, bd.ObtenerConexion());
+                    // 1. Agregamos corchetes a [Fecha_Hora] por seguridad, ya que es una palabra sensible en Access
+                    string sqlAuditoria = @"INSERT INTO Auditoria_Usuario (Usuario, [Fecha_Hora], Estado_Login, Opcion_Sistema) 
+                        VALUES (?, ?, ?, ?)";
 
-                    cmdAuditoria.Parameters.AddWithValue("@Usuario", correo);
-                    cmdAuditoria.Parameters.AddWithValue("@Fecha_Hora", DateTime.Now);
-                    cmdAuditoria.Parameters.AddWithValue("@Estado_Login", "Ingreso");
-                    cmdAuditoria.Parameters.AddWithValue("@Opcion_Sistema", perfil);
+                    OleDbCommand cmdAuditoria = new OleDbCommand(sqlAuditoria, bd.ObtenerConexion());
 
+                    // 2. Definimos explícitamente los tipos de datos en el ORDEN EXACTO de los signos de pregunta (?)
+                    cmdAuditoria.Parameters.Add("@Usuario", OleDbType.VarChar).Value = correo;
+
+                    // ESTA LINEA EVITA EL ERROR: Le dice a Access que va un tipo Fecha nativo, no un String adaptado
+                    cmdAuditoria.Parameters.Add("@Fecha_Hora", OleDbType.Date).Value = DateTime.Now;
+
+                    cmdAuditoria.Parameters.Add("@Estado_Login", OleDbType.VarChar).Value = "Ingreso";
+                    cmdAuditoria.Parameters.Add("@Opcion_Sistema", OleDbType.VarChar).Value = perfil;
+
+                    // 3. Ejecutamos la inserción
                     cmdAuditoria.ExecuteNonQuery();
-                    */
+
 
                     string fechaHora = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 

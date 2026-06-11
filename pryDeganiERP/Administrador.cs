@@ -82,36 +82,12 @@ namespace pryDeganiERP
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Conexion bd = new Conexion();
+            Usuario login = new Usuario();
+            this.Hide();
+            login.Show();
 
-            try
-            {
-                bd.AbrirConexion();
-
-                string registrar = @" INSERT INTO Auditoria_Usuario(Usuario, Fecha_Hora, Estado_Login, Opcion_Sistema)VALUES (?, ?, ?, ?)";
-
-                OleDbCommand cmdAuditoria =
-                    new OleDbCommand(registrar, bd.ObtenerConexion());
-
-                cmdAuditoria.Parameters.AddWithValue("@Usuario", usuarioActual);
-                cmdAuditoria.Parameters.AddWithValue("@Fecha_Hora", DateTime.Now);
-                cmdAuditoria.Parameters.AddWithValue("@Estado_Login", "Salida");
-                cmdAuditoria.Parameters.AddWithValue("@Opcion_Sistema", "Cierre de sesión");
-
-                cmdAuditoria.ExecuteNonQuery();
-
-                bd.CerrarConexion();
-
-                Usuario login = new Usuario();
-                this.Hide();
-                login.Show();
-
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            this.Close();
+            
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)

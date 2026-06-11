@@ -90,7 +90,7 @@
             this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "Salir\r\n";
             this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnAuditoria
             // 
@@ -121,6 +121,7 @@
             this.btnContabilidad.TabIndex = 12;
             this.btnContabilidad.Text = "Contabilidad";
             this.btnContabilidad.UseVisualStyleBackColor = true;
+            this.btnContabilidad.Enabled = false;
             // 
             // Administrador
             // 

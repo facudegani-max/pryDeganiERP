@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agregar));
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -219,6 +220,7 @@
             // 
             // cmbRedes
             // 
+            this.cmbRedes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRedes.FormattingEnabled = true;
             this.cmbRedes.Location = new System.Drawing.Point(143, 128);
             this.cmbRedes.Margin = new System.Windows.Forms.Padding(5);
@@ -304,6 +306,7 @@
             // 
             // cmbLocalidad
             // 
+            this.cmbLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocalidad.FormattingEnabled = true;
             this.cmbLocalidad.Location = new System.Drawing.Point(147, 169);
             this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(5);
@@ -313,12 +316,14 @@
             // 
             // cmbProvincia
             // 
+            this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProvincia.FormattingEnabled = true;
             this.cmbProvincia.Location = new System.Drawing.Point(147, 123);
             this.cmbProvincia.Margin = new System.Windows.Forms.Padding(5);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(164, 28);
             this.cmbProvincia.TabIndex = 2;
+            this.cmbProvincia.SelectedIndexChanged += new System.EventHandler(this.cmbProvincia_SelectedIndexChanged);
             // 
             // checkBoxActivo
             // 
@@ -367,7 +372,9 @@
             this.Controls.Add(this.checkBoxActivo);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCargar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Agregar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Usuario";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

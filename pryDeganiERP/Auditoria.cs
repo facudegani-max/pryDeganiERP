@@ -23,6 +23,14 @@ namespace pryDeganiERP
             this.cmblistaAuditoria.SelectedIndexChanged += CmblistaAuditoria_SelectedIndexChanged;
             this.chkbuttonAscendente.CheckedChanged += SortingOptionChanged;
             this.chkbuttonDescendente.CheckedChanged += SortingOptionChanged;
+
+            // Make controls non-editable by user
+            cmblistaAuditoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            dgvAuditoria.ReadOnly = true;
+            dgvAuditoria.AllowUserToAddRows = false;
+            dgvAuditoria.AllowUserToDeleteRows = false;
+            dgvAuditoria.AllowUserToOrderColumns = false;
+            dgvAuditoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         // Constructor que recibe el Administrador que la abrió
@@ -91,7 +99,7 @@ namespace pryDeganiERP
             {
                 bd.AbrirConexion();
 
-                string tabla = cmblistaAuditoria.SelectedIndex >= 0 ? cmblistaAuditoria.Text : "Auditoria";
+                string tabla = cmblistaAuditoria.SelectedIndex >= 0 ? cmblistaAuditoria.Text : "Auditoria_Usuario";
 
                 string orden = "";
 
@@ -116,6 +124,20 @@ namespace pryDeganiERP
             }
             catch (Exception ex)
             {
+                // Suppress noisy messages when a table is not found (e.g. invalid selection)
+                var lower = ex.Message?.ToLowerInvariant() ?? string.Empty;
+                if (lower.Contains("no value given for one or more required parameters")
+                    || lower.Contains("could not find")
+                    || lower.Contains("not found")
+                    || lower.Contains("no existe")
+                    || lower.Contains("does not exist"))
+                {
+                    // quietly clear grid and return
+                    try { dgvAuditoria.DataSource = null; } catch { }
+                    bd.CerrarConexion();
+                    return;
+                }
+
                 MessageBox.Show(
                     "Error al cargar auditoría: " +
                     ex.Message);

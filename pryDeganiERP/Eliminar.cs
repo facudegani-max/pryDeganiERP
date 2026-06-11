@@ -20,6 +20,15 @@ namespace pryDeganiERP
 
             // Make fields read-only by default
             SetFieldsReadOnly(true);
+
+            // Disable eliminar until a user is found
+            btnEliminar.Enabled = false;
+
+            // Trigger search on Enter
+            this.txtDni.KeyDown += TxtDni_KeyDown;
+
+            // Ensure personal DNI field is read-only initially
+            textBox1.ReadOnly = true;
         }
 
         // Constructor that receives the RecursosHumanos owner
@@ -73,8 +82,15 @@ namespace pryDeganiERP
 
                     checkBoxActivo.Checked = dr["Estado"] != DBNull.Value && Convert.ToBoolean(dr["Estado"]);
 
-                    // Make fields read-only so user cannot edit
+                    // Show the DNI used in the personal data field so it can be edited if required
+                    textBox1.Text = dni;
+
+                    // Keep most fields read-only and show the personal DNI (non-editable)
                     SetFieldsReadOnly(true);
+                    textBox1.ReadOnly = true;
+
+                    // Enable eliminar now that a user was found
+                    btnEliminar.Enabled = true;
                 }
                 else
                 {
@@ -144,35 +160,56 @@ namespace pryDeganiERP
             {
                 bd.AbrirConexion();
 
-                string sql = "UPDATE Usuario SET Estado = ? WHERE Dni = ?";
+                // Find IdUsuario
+                string sqlId = "SELECT IdUsuario FROM Usuario WHERE Dni = ?";
+                OleDbCommand cmdId = new OleDbCommand(sqlId, bd.ObtenerConexion());
+                cmdId.Parameters.AddWithValue("@Dni", dni);
+                object idObj = cmdId.ExecuteScalar();
 
-                OleDbCommand cmd = new OleDbCommand(sql, bd.ObtenerConexion());
-
-                cmd.Parameters.AddWithValue("@Estado", 0);
-                cmd.Parameters.AddWithValue("@Dni", dni);
-
-                int rows = cmd.ExecuteNonQuery();
-
-                bd.CerrarConexion();
-
-                if (rows > 0)
+                if (idObj != null)
                 {
-                    MessageBox.Show("Usuario desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int idUsuario = Convert.ToInt32(idObj);
 
-                    // Volver a RecursosHumanos si está disponible
-                    if (ownerRecursosHumanos != null)
+                    // Delete contact
+                    string sqlDelContacto = "DELETE FROM Contacto_Usuario WHERE Id_Usuario = ?";
+                    OleDbCommand cmdDelContacto = new OleDbCommand(sqlDelContacto, bd.ObtenerConexion());
+                    cmdDelContacto.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+                    cmdDelContacto.ExecuteNonQuery();
+
+                    // Delete domicilio
+                    string sqlDelDomic = "DELETE FROM Domicilio_Usuario WHERE Id_Usuario = ?";
+                    OleDbCommand cmdDelDomic = new OleDbCommand(sqlDelDomic, bd.ObtenerConexion());
+                    cmdDelDomic.Parameters.AddWithValue("@Id_Usuario", idUsuario);
+                    cmdDelDomic.ExecuteNonQuery();
+
+                    // Delete usuario
+                    string sqlDelUser = "DELETE FROM Usuario WHERE IdUsuario = ?";
+                    OleDbCommand cmdDelUser = new OleDbCommand(sqlDelUser, bd.ObtenerConexion());
+                    cmdDelUser.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    int rows = cmdDelUser.ExecuteNonQuery();
+
+                    bd.CerrarConexion();
+
+                    if (rows > 0)
                     {
-                        this.Hide();
-                        ownerRecursosHumanos.Show();
-                        this.Close();
+                        MessageBox.Show("Usuario y datos asociados eliminados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Clear displayed fields and keep the form open
+                        LimpiarCampos();
+                        textBox1.Text = "";
+                        txtDni.Text = "";
+                        SetFieldsReadOnly(true);
+                        textBox1.ReadOnly = true;
+                        btnEliminar.Enabled = false;
                     }
                     else
                     {
-                        this.Close();
+                        MessageBox.Show("No se pudo eliminar el usuario.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
+                    bd.CerrarConexion();
                     MessageBox.Show("No se encontró un usuario con ese DNI.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -180,6 +217,15 @@ namespace pryDeganiERP
             {
                 bd.CerrarConexion();
                 MessageBox.Show("Error al desactivar el usuario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TxtDni_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == System.Windows.Forms.Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnBuscar.PerformClick();
             }
         }
 

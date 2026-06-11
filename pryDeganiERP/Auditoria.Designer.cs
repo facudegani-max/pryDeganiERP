@@ -41,16 +41,16 @@
             // 
             this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuditoria.Location = new System.Drawing.Point(13, 62);
-            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(4);
             this.dgvAuditoria.Name = "dgvAuditoria";
-            this.dgvAuditoria.Size = new System.Drawing.Size(1164, 462);
+            this.dgvAuditoria.Size = new System.Drawing.Size(951, 462);
             this.dgvAuditoria.TabIndex = 11;
             // 
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Tomato;
-            this.btnSalir.Location = new System.Drawing.Point(734, 532);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Location = new System.Drawing.Point(521, 532);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(443, 73);
             this.btnSalir.TabIndex = 12;
@@ -91,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1190, 618);
+            this.ClientSize = new System.Drawing.Size(977, 618);
             this.Controls.Add(this.cmblistaAuditoria);
             this.Controls.Add(this.chkbuttonDescendente);
             this.Controls.Add(this.chkbuttonAscendente);
@@ -99,7 +99,7 @@
             this.Controls.Add(this.dgvAuditoria);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Auditoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Base Datos";
