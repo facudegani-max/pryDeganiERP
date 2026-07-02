@@ -39,6 +39,7 @@
             // 
             // dgvAuditoria
             // 
+            this.dgvAuditoria.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuditoria.Location = new System.Drawing.Point(13, 62);
             this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(4);
@@ -91,6 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(977, 618);
             this.Controls.Add(this.cmblistaAuditoria);
             this.Controls.Add(this.chkbuttonDescendente);

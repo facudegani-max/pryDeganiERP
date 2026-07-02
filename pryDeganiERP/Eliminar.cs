@@ -1,6 +1,8 @@
 ﻿using System;
+using System;
 using System.ComponentModel;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace pryDeganiERP
@@ -27,6 +29,14 @@ namespace pryDeganiERP
             // Trigger search on Enter
             this.txtDni.KeyDown += TxtDni_KeyDown;
 
+            // Input restrictions
+            this.txtDni.KeyPress += TxtNumeric_KeyPress;
+            this.textBox1.KeyPress += TxtNumeric_KeyPress;
+            this.txtTelefono.KeyPress += TxtNumeric_KeyPress;
+
+            this.txtNombre.KeyPress += TxtLettersOnly_KeyPress;
+            this.txtApellido.KeyPress += TxtLettersOnly_KeyPress;
+
             // Ensure personal DNI field is read-only initially
             textBox1.ReadOnly = true;
         }
@@ -43,7 +53,16 @@ namespace pryDeganiERP
 
             if (string.IsNullOrWhiteSpace(dni))
             {
+                MarkInvalid(txtDni);
                 MessageBox.Show("Ingrese un DNI.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDni.Focus();
+                return;
+            }
+
+            if (!IsDigits(dni))
+            {
+                MarkInvalid(txtDni);
+                MessageBox.Show("El DNI solo debe contener números.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDni.Focus();
                 return;
             }
@@ -54,7 +73,7 @@ namespace pryDeganiERP
             {
                 bd.AbrirConexion();
 
-                string sql = @"SELECT U.Nombre, U.Apellido, U.Mail, U.Estado, C.Telefono, C.Redes_Sociales, D.Direccion, D.GPS, D.Provincia, D.Localidad
+                string sql = @"SELECT U.IdUsuario, U.Nombre, U.Apellido, U.Mail, U.Estado, C.Telefono, C.RedesSociales, D.Direccion, D.GPS, D.Provincia, D.Localidad
                                FROM ((Usuario U
                                LEFT JOIN Contacto_Usuario C ON U.IdUsuario = C.Id_Usuario)
                                LEFT JOIN Domicilio_Usuario D ON U.IdUsuario = D.Id_Usuario)
@@ -72,7 +91,21 @@ namespace pryDeganiERP
                     txtMail.Text = dr["Mail"].ToString();
 
                     txtTelefono.Text = dr["Telefono"] != DBNull.Value ? dr["Telefono"].ToString() : "";
-                    txtRedes.Text = dr["Redes_Sociales"] != DBNull.Value ? dr["Redes_Sociales"].ToString() : "";
+                    // Read RedesSociales stored in Contacto_Usuario as "Red: valor"
+                    string redes = dr["RedesSociales"] != DBNull.Value ? dr["RedesSociales"].ToString() : "";
+                    if (!string.IsNullOrEmpty(redes) && redes.Contains(":"))
+                    {
+                        var parts = redes.Split(new char[] { ':' }, 2);
+                        string redNombre = parts[0].Trim();
+                        string redValor = parts.Length > 1 ? parts[1].Trim() : "";
+                        cmbRedes.SelectedItem = redNombre;
+                        txtRedes.Text = redValor;
+                    }
+                    else
+                    {
+                        txtRedes.Text = redes;
+                        cmbRedes.SelectedIndex = -1;
+                    }
 
                     txtDireccion.Text = dr["Direccion"] != DBNull.Value ? dr["Direccion"].ToString() : "";
                     txtGeografia.Text = dr["GPS"] != DBNull.Value ? dr["GPS"].ToString() : "";
@@ -91,6 +124,9 @@ namespace pryDeganiERP
 
                     // Enable eliminar now that a user was found
                     btnEliminar.Enabled = true;
+
+                    // Validate displayed contact/address fields (informational)
+                    ValidateDisplayFields();
                 }
                 else
                 {
@@ -154,6 +190,13 @@ namespace pryDeganiERP
             if (confirm != DialogResult.Yes)
                 return;
 
+            // If user is already deactivated, show message and do nothing
+            if (!checkBoxActivo.Checked)
+            {
+                MessageBox.Show("El usuario ya se encuentra desactivado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             Conexion bd = new Conexion();
 
             try
@@ -170,29 +213,17 @@ namespace pryDeganiERP
                 {
                     int idUsuario = Convert.ToInt32(idObj);
 
-                    // Delete contact
-                    string sqlDelContacto = "DELETE FROM Contacto_Usuario WHERE Id_Usuario = ?";
-                    OleDbCommand cmdDelContacto = new OleDbCommand(sqlDelContacto, bd.ObtenerConexion());
-                    cmdDelContacto.Parameters.AddWithValue("@Id_Usuario", idUsuario);
-                    cmdDelContacto.ExecuteNonQuery();
-
-                    // Delete domicilio
-                    string sqlDelDomic = "DELETE FROM Domicilio_Usuario WHERE Id_Usuario = ?";
-                    OleDbCommand cmdDelDomic = new OleDbCommand(sqlDelDomic, bd.ObtenerConexion());
-                    cmdDelDomic.Parameters.AddWithValue("@Id_Usuario", idUsuario);
-                    cmdDelDomic.ExecuteNonQuery();
-
-                    // Delete usuario
-                    string sqlDelUser = "DELETE FROM Usuario WHERE IdUsuario = ?";
-                    OleDbCommand cmdDelUser = new OleDbCommand(sqlDelUser, bd.ObtenerConexion());
-                    cmdDelUser.Parameters.AddWithValue("@IdUsuario", idUsuario);
-                    int rows = cmdDelUser.ExecuteNonQuery();
+                    // Instead of deleting the user and related data, mark the user as deactivated
+                    string sqlUpdUser = "UPDATE Usuario SET Estado = 0 WHERE IdUsuario = ?";
+                    OleDbCommand cmdUpdUser = new OleDbCommand(sqlUpdUser, bd.ObtenerConexion());
+                    cmdUpdUser.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                    int rows = cmdUpdUser.ExecuteNonQuery();
 
                     bd.CerrarConexion();
 
                     if (rows > 0)
                     {
-                        MessageBox.Show("Usuario y datos asociados eliminados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Usuario desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Clear displayed fields and keep the form open
                         LimpiarCampos();
@@ -204,7 +235,7 @@ namespace pryDeganiERP
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo eliminar el usuario.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("No se pudo desactivar el usuario.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
@@ -226,6 +257,78 @@ namespace pryDeganiERP
             {
                 e.SuppressKeyPress = true;
                 btnBuscar.PerformClick();
+            }
+        }
+
+        // Helper: mark control invalid
+        private void MarkInvalid(Control c)
+        {
+            try { c.BackColor = Color.LightPink; } catch { }
+        }
+
+        private void ResetFieldColors()
+        {
+            try { txtDni.BackColor = SystemColors.Window; } catch { }
+            try { textBox1.BackColor = SystemColors.Window; } catch { }
+            try { txtNombre.BackColor = SystemColors.Window; } catch { }
+            try { txtApellido.BackColor = SystemColors.Window; } catch { }
+            try { txtTelefono.BackColor = SystemColors.Window; } catch { }
+        }
+
+        private bool IsDigits(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return false;
+            foreach (char ch in s)
+            {
+                if (!char.IsDigit(ch)) return false;
+            }
+            return true;
+        }
+
+        private void TxtNumeric_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow control keys (backspace), digits only
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtLettersOnly_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow letters, control and whitespace
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ValidateDisplayFields()
+        {
+            // Informational validation: mark and notify if contact/address fields are empty or invalid
+            // Telefono: should be digits
+            if (!string.IsNullOrWhiteSpace(txtTelefono.Text) && !IsDigits(txtTelefono.Text.Trim()))
+            {
+                MarkInvalid(txtTelefono);
+                MessageBox.Show("El Teléfono mostrado contiene caracteres inválidos (solo números).", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            if (string.IsNullOrWhiteSpace(txtRedes.Text))
+            {
+                MarkInvalid(txtRedes);
+                MessageBox.Show("El campo Redes está vacío.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MarkInvalid(txtDireccion);
+                MessageBox.Show("El campo Dirección está vacío.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (string.IsNullOrWhiteSpace(txtGeografia.Text))
+            {
+                MarkInvalid(txtGeografia);
+                MessageBox.Show("El campo Geografía está vacío.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

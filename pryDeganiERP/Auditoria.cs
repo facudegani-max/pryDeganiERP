@@ -54,22 +54,16 @@ namespace pryDeganiERP
         {
             try
             {
-                bd.AbrirConexion();
-
-                // Get table names from schema
-                DataTable schema = bd.ObtenerConexion().GetSchema("Tables");
-
+                // Expose specific tables the user can choose to view in the auditoría
                 cmblistaAuditoria.Items.Clear();
+                cmblistaAuditoria.Items.Add("Auditoria_Usuario");
+                cmblistaAuditoria.Items.Add("Usuario");
+                cmblistaAuditoria.Items.Add("Domicilio_Usuario");
+                cmblistaAuditoria.Items.Add("Contacto_Usuario");
 
-                foreach (DataRow row in schema.Rows)
-                {
-                    string tableName = row[2].ToString();
-                    // Filter system tables if needed
-                    if (!tableName.StartsWith("MSys"))
-                        cmblistaAuditoria.Items.Add(tableName);
-                }
-
-                bd.CerrarConexion();
+                // Select the auditoría table by default
+                if (cmblistaAuditoria.Items.Count > 0)
+                    cmblistaAuditoria.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

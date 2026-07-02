@@ -99,7 +99,7 @@
             this.btnAuditoria.Name = "btnAuditoria";
             this.btnAuditoria.Size = new System.Drawing.Size(492, 91);
             this.btnAuditoria.TabIndex = 10;
-            this.btnAuditoria.Text = "Auditoria";
+            this.btnAuditoria.Text = "Auditoría";
             this.btnAuditoria.UseVisualStyleBackColor = true;
             // 
             // btnRecursosHumanos
@@ -114,6 +114,7 @@
             // 
             // btnContabilidad
             // 
+            this.btnContabilidad.Enabled = false;
             this.btnContabilidad.Location = new System.Drawing.Point(24, 293);
             this.btnContabilidad.Margin = new System.Windows.Forms.Padding(5);
             this.btnContabilidad.Name = "btnContabilidad";
@@ -121,12 +122,12 @@
             this.btnContabilidad.TabIndex = 12;
             this.btnContabilidad.Text = "Contabilidad";
             this.btnContabilidad.UseVisualStyleBackColor = true;
-            this.btnContabilidad.Enabled = false;
             // 
             // Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.ClientSize = new System.Drawing.Size(548, 583);
             this.Controls.Add(this.btnContabilidad);
             this.Controls.Add(this.btnRecursosHumanos);

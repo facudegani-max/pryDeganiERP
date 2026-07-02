@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace pryDeganiERP
@@ -16,6 +17,11 @@ namespace pryDeganiERP
 
             this.btnCargar.Click += btnCargar_Click;
             this.btnSalir.Click += btnSalir_Click;
+            // Input restrictions
+            this.textBox1.KeyPress += TxtNumeric_KeyPress; // DNI
+            this.txtTelefono.KeyPress += TxtNumeric_KeyPress;
+            this.txtNombre.KeyPress += TxtLettersOnly_KeyPress;
+            this.txtApellido.KeyPress += TxtLettersOnly_KeyPress;
         }
 
         public Agregar(RecursosHumanos owner) : this()
@@ -119,30 +125,60 @@ namespace pryDeganiERP
         private void btnCargar_Click(object sender, EventArgs e)
         {
             // Basic validation
+            ResetFieldColors();
+
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("DNI obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MarkInvalid(textBox1);
+                MessageBox.Show("El campo DNI está vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox1.Focus();
+                return;
+            }
+
+            if (!IsDigits(textBox1.Text.Trim()))
+            {
+                MarkInvalid(textBox1);
+                MessageBox.Show("El DNI solo debe contener números.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBox1.Focus();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("Nombre obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MarkInvalid(txtNombre);
+                MessageBox.Show("El campo Nombre está vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNombre.Focus();
+                return;
+            }
+
+            if (!IsLetters(txtNombre.Text.Trim()))
+            {
+                MarkInvalid(txtNombre);
+                MessageBox.Show("El Nombre sólo puede contener letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNombre.Focus();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtApellido.Text))
             {
-                MessageBox.Show("Apellido obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MarkInvalid(txtApellido);
+                MessageBox.Show("El campo Apellido está vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtApellido.Focus();
+                return;
+            }
+
+            if (!IsLetters(txtApellido.Text.Trim()))
+            {
+                MarkInvalid(txtApellido);
+                MessageBox.Show("El Apellido sólo puede contener letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtApellido.Focus();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtMail.Text))
             {
-                MessageBox.Show("Mail obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MarkInvalid(txtMail);
+                MessageBox.Show("El campo Mail está vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMail.Focus();
                 return;
             }
@@ -156,8 +192,50 @@ namespace pryDeganiERP
 
             if (cmbLocalidad.SelectedIndex < 0)
             {
+                MarkInvalid(cmbLocalidad);
                 MessageBox.Show("Seleccioná una Localidad.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbLocalidad.Focus();
+                return;
+            }
+
+            // Only allow adding users if their Estado is Activado
+            if (!checkBoxActivo.Checked)
+            {
+                MessageBox.Show("Solo se pueden agregar usuarios que estén Activados.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // If telefono provided, ensure numeric
+            if (!string.IsNullOrWhiteSpace(txtTelefono.Text) && !IsDigits(txtTelefono.Text.Trim()))
+            {
+                MarkInvalid(txtTelefono);
+                MessageBox.Show("El Teléfono solo debe contener números.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTelefono.Focus();
+                return;
+            }
+
+            // Validate Redes, Direccion, Geografia (required)
+            if (string.IsNullOrWhiteSpace(txtRedes.Text))
+            {
+                MarkInvalid(txtRedes);
+                MessageBox.Show("El campo Redes está vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRedes.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MarkInvalid(txtDireccion);
+                MessageBox.Show("El campo Dirección está vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDireccion.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtGeografia.Text))
+            {
+                MarkInvalid(txtGeografia);
+                MessageBox.Show("El campo Geografía está vacío.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGeografia.Focus();
                 return;
             }
 
@@ -198,7 +276,7 @@ namespace pryDeganiERP
                 cmdDomicilio.ExecuteNonQuery();
 
                 string sqlContacto =
-                    @"INSERT INTO Contacto_Usuario (Id_Usuario, Telefono, Redes_Sociales)
+                    @"INSERT INTO Contacto_Usuario (Id_Usuario, Telefono, RedesSociales)
               VALUES (?, ?, ?)";
 
                 string redesValor = cmbRedes.SelectedIndex >= 0
@@ -208,7 +286,7 @@ namespace pryDeganiERP
                 OleDbCommand cmdContacto = new OleDbCommand(sqlContacto, con);
                 cmdContacto.Parameters.AddWithValue("@Id_Usuario", nuevoId);
                 cmdContacto.Parameters.AddWithValue("@Telefono", txtTelefono.Text.Trim());
-                cmdContacto.Parameters.AddWithValue("@Redes_Sociales", redesValor);
+                cmdContacto.Parameters.AddWithValue("@RedesSociales", redesValor);
                 cmdContacto.ExecuteNonQuery();
 
                 bd.CerrarConexion();
@@ -245,6 +323,57 @@ namespace pryDeganiERP
             this.Hide();
             nueva.Show();
             this.Close();
+        }
+
+        private void MarkInvalid(Control c)
+        {
+            try { c.BackColor = Color.LightPink; } catch { }
+        }
+
+        private void ResetFieldColors()
+        {
+            try { textBox1.BackColor = SystemColors.Window; } catch { }
+            try { txtNombre.BackColor = SystemColors.Window; } catch { }
+            try { txtApellido.BackColor = SystemColors.Window; } catch { }
+            try { txtMail.BackColor = SystemColors.Window; } catch { }
+            try { txtTelefono.BackColor = SystemColors.Window; } catch { }
+            try { cmbLocalidad.BackColor = SystemColors.Window; } catch { }
+        }
+
+        private bool IsDigits(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return false;
+            foreach (char ch in s)
+            {
+                if (!char.IsDigit(ch)) return false;
+            }
+            return true;
+        }
+
+        private bool IsLetters(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return false;
+            foreach (char ch in s)
+            {
+                if (!char.IsLetter(ch) && !char.IsWhiteSpace(ch)) return false;
+            }
+            return true;
+        }
+
+        private void TxtNumeric_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtLettersOnly_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
        
     }

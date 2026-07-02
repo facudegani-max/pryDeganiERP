@@ -48,6 +48,10 @@
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtRedes = new System.Windows.Forms.TextBox();
             this.cmbRedes = new System.Windows.Forms.ComboBox();
+            this.btnAgregarContacto = new System.Windows.Forms.Button();
+            this.btnEliminarContacto = new System.Windows.Forms.Button();
+            this.btnAgregarDomicilio = new System.Windows.Forms.Button();
+            this.btnEliminarDomicilio = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtGeografia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,7 +72,7 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Tomato;
-            this.btnSalir.Location = new System.Drawing.Point(384, 373);
+            this.btnSalir.Location = new System.Drawing.Point(390, 404);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(322, 59);
@@ -78,7 +82,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(384, 308);
+            this.btnModificar.Location = new System.Drawing.Point(390, 339);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(5);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(322, 59);
@@ -106,6 +110,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox3.Controls.Add(this.txtApellido);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label3);
@@ -177,6 +182,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox2.Controls.Add(this.txtTelefono);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
@@ -184,11 +190,13 @@
             this.groupBox2.Controls.Add(this.txtMail);
             this.groupBox2.Controls.Add(this.txtRedes);
             this.groupBox2.Controls.Add(this.cmbRedes);
+            this.groupBox2.Controls.Add(this.btnAgregarContacto);
+            this.groupBox2.Controls.Add(this.btnEliminarContacto);
             this.groupBox2.Location = new System.Drawing.Point(9, 211);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox2.Size = new System.Drawing.Size(343, 225);
+            this.groupBox2.Size = new System.Drawing.Size(343, 259);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Contacto";
@@ -217,9 +225,9 @@
             this.label9.Location = new System.Drawing.Point(28, 83);
             this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 20);
+            this.label9.Size = new System.Drawing.Size(84, 20);
             this.label9.TabIndex = 8;
-            this.label9.Text = "Telefono";
+            this.label9.Text = "Teléfono:";
             // 
             // label10
             // 
@@ -256,9 +264,56 @@
             this.cmbRedes.Size = new System.Drawing.Size(164, 28);
             this.cmbRedes.TabIndex = 2;
             // 
+            // btnAgregarContacto
+            // 
+            this.btnAgregarContacto.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnAgregarContacto.Location = new System.Drawing.Point(18, 220);
+            this.btnAgregarContacto.Name = "btnAgregarContacto";
+            this.btnAgregarContacto.Size = new System.Drawing.Size(140, 30);
+            this.btnAgregarContacto.TabIndex = 4;
+            this.btnAgregarContacto.Text = "Agregar contacto";
+            this.btnAgregarContacto.UseVisualStyleBackColor = false;
+            this.btnAgregarContacto.Click += new System.EventHandler(this.BtnAgregarContacto_Click);
+            // 
+            // btnEliminarContacto
+            // 
+            this.btnEliminarContacto.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnEliminarContacto.Location = new System.Drawing.Point(182, 220);
+            this.btnEliminarContacto.Name = "btnEliminarContacto";
+            this.btnEliminarContacto.Size = new System.Drawing.Size(140, 30);
+            this.btnEliminarContacto.TabIndex = 5;
+            this.btnEliminarContacto.Text = "Eliminar contacto";
+            this.btnEliminarContacto.UseVisualStyleBackColor = false;
+            this.btnEliminarContacto.Click += new System.EventHandler(this.BtnEliminarContacto_Click);
+            // 
+            // btnAgregarDomicilio
+            // 
+            this.btnAgregarDomicilio.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnAgregarDomicilio.Location = new System.Drawing.Point(20, 218);
+            this.btnAgregarDomicilio.Name = "btnAgregarDomicilio";
+            this.btnAgregarDomicilio.Size = new System.Drawing.Size(150, 30);
+            this.btnAgregarDomicilio.TabIndex = 4;
+            this.btnAgregarDomicilio.Text = "Agregar domicilio";
+            this.btnAgregarDomicilio.UseVisualStyleBackColor = false;
+            this.btnAgregarDomicilio.Click += new System.EventHandler(this.BtnAgregarDomicilio_Click);
+            // 
+            // btnEliminarDomicilio
+            // 
+            this.btnEliminarDomicilio.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnEliminarDomicilio.Location = new System.Drawing.Point(188, 218);
+            this.btnEliminarDomicilio.Name = "btnEliminarDomicilio";
+            this.btnEliminarDomicilio.Size = new System.Drawing.Size(150, 30);
+            this.btnEliminarDomicilio.TabIndex = 5;
+            this.btnEliminarDomicilio.Text = "Eliminar domicilio";
+            this.btnEliminarDomicilio.UseVisualStyleBackColor = false;
+            this.btnEliminarDomicilio.Click += new System.EventHandler(this.BtnEliminarDomicilio_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox1.Controls.Add(this.txtGeografia);
+            this.groupBox1.Controls.Add(this.btnAgregarDomicilio);
+            this.groupBox1.Controls.Add(this.btnEliminarDomicilio);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
@@ -270,7 +325,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(347, 226);
+            this.groupBox1.Size = new System.Drawing.Size(347, 256);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Domicilio";
@@ -352,7 +407,7 @@
             // checkBoxActivo
             // 
             this.checkBoxActivo.AutoSize = true;
-            this.checkBoxActivo.Location = new System.Drawing.Point(518, 282);
+            this.checkBoxActivo.Location = new System.Drawing.Point(524, 313);
             this.checkBoxActivo.Margin = new System.Windows.Forms.Padding(5);
             this.checkBoxActivo.Name = "checkBoxActivo";
             this.checkBoxActivo.Size = new System.Drawing.Size(201, 24);
@@ -373,7 +428,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(380, 283);
+            this.label12.Location = new System.Drawing.Point(386, 314);
             this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(134, 20);
@@ -384,7 +439,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 444);
+            this.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.ClientSize = new System.Drawing.Size(730, 473);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox3);
@@ -401,6 +457,7 @@
             this.Name = "Modificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Usuario";
+            this.Load += new System.EventHandler(this.Modificar_Load_1);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -445,5 +502,9 @@
         private System.Windows.Forms.CheckBox checkBoxActivo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnAgregarContacto;
+        private System.Windows.Forms.Button btnEliminarContacto;
+        private System.Windows.Forms.Button btnAgregarDomicilio;
+        private System.Windows.Forms.Button btnEliminarDomicilio;
     }
 }
